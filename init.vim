@@ -27,10 +27,14 @@ call plug#begin()
   Plug 'gyim/vim-boxdraw'
 
   if has('nvim')
-
+    Plug 'neovim/nvim-lspconfig'
   endif
 
 call plug#end()
+
+if has('nvim')
+  lua require('jsabine.init')
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Buffer sets                                  "
@@ -95,9 +99,8 @@ set path+=**
 
 " Let syntax scripts format/highlight code
 syntax on
-filetype on
-filetype plugin
-filetype indent
+filetype plugin on
+filetype indent on
 set autoindent
 set smartindent
 
@@ -135,6 +138,8 @@ nmap <Leader>V "+P
 " Paste from yank instead of volatile register
 nmap <Leader>p "0p
 nmap <Leader>P "0P
+
+nmap <Leader>xx :clo<CR>
 
 " Quick nohighlight mapping
 nmap <Leader>h :noh<CR>
