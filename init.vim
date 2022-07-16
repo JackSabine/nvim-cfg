@@ -26,6 +26,8 @@ call plug#begin()
 
   Plug 'gyim/vim-boxdraw'
 
+  Plug 'rpdelaney/vim-sourcecfg'
+
   if has('nvim')
     Plug 'neovim/nvim-lspconfig'
   endif
