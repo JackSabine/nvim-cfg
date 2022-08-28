@@ -45,11 +45,12 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim"    -- Have packer manage itself
   use "nvim-lua/popup.nvim"       -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim"     -- Useful lua functions used ny lots of plugins
-  use 'tomasiser/vim-code-dark'
-  use 'adelarsq/vim-matchit'
-  use 'preservim/nerdtree'
-  use 'gyim/vim-boxdraw'
-  use 'rpdelaney/vim-sourcecfg'
+  use 'tomasiser/vim-code-dark'   -- Temp colorscheme load
+  use 'adelarsq/vim-matchit'      -- Add more functionality to the `%` key
+  use 'preservim/nerdtree'        -- Folder browser plugin
+  use 'gyim/vim-boxdraw'          -- Primitive arrow/box drawer
+  use 'rpdelaney/vim-sourcecfg'   -- Syntax highlighting for TF2/CSGO config files
+  use 'rstacruz/vim-closer'       -- Automatic bracket closer upon pressing `Enter`
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
