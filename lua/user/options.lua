@@ -28,6 +28,8 @@ local options = {
   numberwidth = 4,                         -- set number line-number column width
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
 
+  termguicolors = true,                    -- use more terminal colors (colorschemes will be more accurate!)
+
 -- Line numbers and columns
   relativenumber = true,                   
   number = true,
@@ -65,5 +67,4 @@ vim.opt.whichwrap:append "<,>,[,],h,l"
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
- 
---vim.cmd "colorscheme=codedark"                  -- use vim-code-dark
+
