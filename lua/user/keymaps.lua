@@ -34,9 +34,6 @@ keymap("n", "<C-Down>",   ":resize +2<CR>", opts)
 keymap("n", "<C-Left>",   ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>",  ":vertical resize +2<CR>", opts)
 
--- Reloading vim config is easy!
-keymap("n", "<Leader>RR", ":so ~/.config/nvim/init.vim<CR>", opts)
-
 -- Copy/Paste to system register (X11 clipboard)
 keymap("n", "<Leader>c", '"+y', opts)
 keymap("n", "<Leader>v", '"+p', opts)
