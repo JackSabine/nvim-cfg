@@ -52,6 +52,17 @@ return packer.startup(function(use)
   use 'rpdelaney/vim-sourcecfg'   -- Syntax highlighting for TF2/CSGO config files
   use 'rstacruz/vim-closer'       -- Automatic bracket closer upon pressing `Enter`
 
+  use "hrsh7th/nvim-cmp"          -- Completion plugin
+  use "hrsh7th/cmp-buffer"        -- buffer completions
+  use "hrsh7th/cmp-path"          -- path completions
+  use "hrsh7th/cmp-cmdline"       -- cmdline completions
+  use "saadparwaiz1/cmp_luasnip"  -- Snippet completions
+
+  -- Snippets
+  use "L3MON4D3/LuaSnip"          -- Snippet engine
+  use "rafamadriz/friendly-snippets" -- Tons of snippets
+
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
