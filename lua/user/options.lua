@@ -31,7 +31,7 @@ local options = {
   termguicolors = false,                    -- use more terminal colors (colorschemes will be more accurate!)
 
 -- Line numbers and columns
-  relativenumber = true,                   
+  relativenumber = true,
   number = true,
   ruler = true,
 
