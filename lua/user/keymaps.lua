@@ -57,6 +57,10 @@ keymap("n", "<Leader>rW", "diW\"0P", opts)
 keymap("n", "<Leader>t", ":NERDTreeToggle<CR>", opts)
 keymap("n", "<Leader>f", ":NERDTreeFind<CR>", opts)
 
+-- Telescope binds
+keymap("n", "<C-t>", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+keymap("n", "<C-g>", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+
 -- Switch between tabs
 keymap("n", "<Leader>.", ":tabp<CR>", opts)
 keymap("n", "<Leader>/", ":tabn<CR>", opts)
