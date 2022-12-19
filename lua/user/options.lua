@@ -28,7 +28,7 @@ local options = {
   numberwidth = 4,                         -- set number line-number column width
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
 
-  termguicolors = false,                    -- use more terminal colors (colorschemes will be more accurate!)
+  termguicolors = true,                    -- use more terminal colors (colorschemes will be more accurate!)
 
 -- Line numbers and columns
   relativenumber = true,
