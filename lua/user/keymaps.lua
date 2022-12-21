@@ -81,6 +81,17 @@ keymap("n", "/", "/\\v", opts)
 keymap("n", "n", "nzz", opts)
 keymap("n", "N", "Nzz", opts)
 
+-- Toggle between relative and absolute numbers
+function NumberToggle()
+  if vim.opt.relativenumber:get() then
+    vim.opt.relativenumber = false
+  else
+    vim.opt.relativenumber = true
+  end
+end
+
+keymap("n", "<C-n>", "<cmd>lua NumberToggle()<CR>", opts)
+
 ------------------
 --    Insert    --
 ------------------

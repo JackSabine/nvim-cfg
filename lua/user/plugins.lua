@@ -47,14 +47,14 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim"             -- Useful lua functions used ny lots of plugins
 
   -- My plugins
-  use 'adelarsq/vim-matchit'              -- Add more functionality to the `%` key
-  use 'gyim/vim-boxdraw'                  -- Primitive arrow/box drawer
-  use 'rpdelaney/vim-sourcecfg'           -- Syntax highlighting for TF2/CSGO config files
-  use 'rstacruz/vim-closer'               -- Automatic bracket closer upon pressing `Enter`
-  use 'jghauser/mkdir.nvim'
+  use "adelarsq/vim-matchit"              -- Add more functionality to the `%` key
+  use "gyim/vim-boxdraw"                  -- Primitive arrow/box drawer
+  use "rpdelaney/vim-sourcecfg"           -- Syntax highlighting for TF2/CSGO config files
+  use "rstacruz/vim-closer"               -- Automatic bracket closer upon pressing `Enter`
+  use "jghauser/mkdir.nvim"
 
   -- Colorschemes
-  use 'tomasiser/vim-code-dark'
+  use "tomasiser/vim-code-dark"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp"                  -- Completion plugin
@@ -86,11 +86,11 @@ return packer.startup(function(use)
 
   -- File tree explorer
   use {
-    'nvim-tree/nvim-tree.lua',
+    "nvim-tree/nvim-tree.lua",
     requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+      "nvim-tree/nvim-web-devicons", -- optional, for file icons
     },
-    tag = 'nightly' -- optional, updated every week
+    tag = "nightly" -- optional, updated every week
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
