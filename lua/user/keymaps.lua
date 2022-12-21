@@ -53,13 +53,14 @@ keymap("n", "<Leader>h", ":noh<CR>", opts)
 keymap("n", "<Leader>rw", "diw\"0P", opts)
 keymap("n", "<Leader>rW", "diW\"0P", opts)
 
--- NERDTree binds
-keymap("n", "<Leader>t", ":NERDTreeToggle<CR>", opts)
-keymap("n", "<Leader>f", ":NERDTreeFind<CR>", opts)
+-- nvim-tree binds
+keymap("n", "<Leader>t", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<Leader>f", ":NvimTreeFindFile<CR>", opts)
 
 -- Telescope binds
-keymap("n", "<C-t>", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
-keymap("n", "<C-g>", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+keymap("n", "<C-t>", "<cmd>lua require('telescope.builtin').find_files({hidden=true})<CR>", opts)
+keymap("n", "<M-t>", "<cmd>lua require('telescope.builtin').resume()<CR>", opts)
+keymap("n", "<C-g>", "<cmd>lua require('telescope.builtin').live_grep()<CR>", opts)
 
 -- Switch between tabs
 keymap("n", "<Leader>.", ":tabp<CR>", opts)

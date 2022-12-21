@@ -8,10 +8,6 @@ if has('nvim')
   lua require('user.init')
 endif
 
-" Make :find recursive in :pwd
-set wildmenu
-set path+=**
-
 " Let syntax scripts format/highlight code
 syntax on
 filetype plugin on

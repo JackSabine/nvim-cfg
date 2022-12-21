@@ -48,10 +48,10 @@ return packer.startup(function(use)
 
   -- My plugins
   use 'adelarsq/vim-matchit'              -- Add more functionality to the `%` key
-  use 'preservim/nerdtree'                -- Folder browser plugin
   use 'gyim/vim-boxdraw'                  -- Primitive arrow/box drawer
   use 'rpdelaney/vim-sourcecfg'           -- Syntax highlighting for TF2/CSGO config files
   use 'rstacruz/vim-closer'               -- Automatic bracket closer upon pressing `Enter`
+  use 'jghauser/mkdir.nvim'
 
   -- Colorschemes
   use 'tomasiser/vim-code-dark'
@@ -83,6 +83,15 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "p00f/nvim-ts-rainbow"
+
+  -- File tree explorer
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    tag = 'nightly' -- optional, updated every week
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

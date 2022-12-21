@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-local actions = require "telescope.actions"
+local actions = require("telescope.actions")
 
 telescope.setup {
   defaults = {
@@ -11,6 +11,20 @@ telescope.setup {
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
+
+    file_ignore_patterns = {
+      "^.git/",
+      "^.cache/",
+      "%.o$",
+      "%.a$",
+      "%.class$",
+      "%.xlsx$",
+      "%.out$",
+      "%.pdf$",
+      "%.mkv$",
+      "%.mp4$",
+      "%.zip$",
+    },
 
     mappings = {
       i = {
