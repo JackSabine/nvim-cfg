@@ -10,6 +10,11 @@ configs.setup {
   -- List of parsers to ignore installing (for "all")
   ignore_install = { "" },
 
+  -- Allow nvim-autopairs to hook into treesitter
+  autopairs = {
+    enable = true
+  },
+
   highlight = {
     -- false will disable the whole extension
     enable = true,

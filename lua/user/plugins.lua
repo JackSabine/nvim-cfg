@@ -47,11 +47,10 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim"             -- Useful lua functions used ny lots of plugins
 
   -- My plugins
-  use "adelarsq/vim-matchit"              -- Add more functionality to the `%` key
   use "gyim/vim-boxdraw"                  -- Primitive arrow/box drawer
   use "rpdelaney/vim-sourcecfg"           -- Syntax highlighting for TF2/CSGO config files
-  use "rstacruz/vim-closer"               -- Automatic bracket closer upon pressing `Enter`
   use "jghauser/mkdir.nvim"
+  use "windwp/nvim-autopairs"
 
   -- Colorschemes
   use "tomasiser/vim-code-dark"
