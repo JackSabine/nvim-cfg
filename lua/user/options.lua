@@ -12,7 +12,6 @@ local options = {
   history = 200,                           -- save last 200 commands
   encoding = "utf-8",                      -- internal encoding
   fileencoding = "utf-8",                  -- encoding written to a file
-  shell = bash,                            -- shell used by :! commands
   cursorline = true,                       -- highlight cursor line underneath the cursor horizontally
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 0,                        -- so that `` is visible in markdown files
@@ -27,42 +26,44 @@ local options = {
   writebackup = false,                     -- if a file is being edited by another program, it is not allowed to be edited
   numberwidth = 4,                         -- set number line-number column width
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
-
   termguicolors = true,                    -- use more terminal colors (colorschemes will be more accurate!)
 
 -- Line numbers and columns
-  relativenumber = true,
-  number = true,
-  ruler = true,
+  relativenumber = true,                  -- show up/down count relative to cursorline
+  number = true,                          -- show line numbers (needed for absolute or relative to work)
+  ruler = true,                           -- show line/column in statusline
 
 -- Better searching settings
-  hlsearch = true,
-  incsearch = true,
+  hlsearch = true,                        -- highlight search matches in buffer
+  incsearch = true,                       -- show matches while typing search
+
+  -- pattern  'ignorecase'  'smartcase'  matches ~
+  -- foo      off           -            foo
+  -- foo      on            -            foo Foo FOO
+  -- Foo      on            off          foo Foo FOO
+  -- Foo      on            on               Foo
+  -- \cfoo    -             -            foo Foo FOO
+  -- foo\C    -             -            foo
   ignorecase = true,
   smartcase = true,
-  magic = true,
-  showmatch = true,
 
 -- Nobody likes bells...
   errorbells = false,
   visualbell = false,
---  t_vb = "",
-
-
--- configure backspace so it acts as it should act
-  backspace = eol,start,indent,
---  t_BE= "",
 
 -- <TAB> -> 2 spaces
   expandtab = true,
   tabstop = 2,
   shiftwidth = 2,
-  softtabstop = 2
+  softtabstop = 2,
+
+  whichwrap = "bs<>[]hl"                         -- which "horizontal" keys are allowed to travel to prev/next line
 }
 
-vim.opt.shortmess:append "c"
-vim.opt.iskeyword:append "-"                    -- treat - as a keyword
-vim.opt.whichwrap:append "<,>,[,],h,l"
+vim.opt.shortmess:append("c")                         -- don't give |ins-complete-menu| mesasges
+vim.opt.iskeyword:append("-")                         -- hyphenated words recognized by searches
+vim.opt.formatoptions:remove({"c", "r", "o"})         -- don't insert comment leader for certain cases (`:h formatoptions` and `:h fo-table`)
+vim.opt.runtimepath:remove("/usr/share/vim/vimfiles") -- separate vim plugins from neovim in case vim still in use
 
 for k, v in pairs(options) do
   vim.opt[k] = v

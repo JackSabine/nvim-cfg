@@ -74,7 +74,7 @@ keymap("n", "OO", "O<Esc>", opts)
 keymap("n", "<C-e>", "4<C-e>", opts)
 keymap("n", "<C-y>", "4<C-y>", opts)
 
--- Use regex characters whenever searching
+-- Use regex characters whenever searching (very magic)
 keymap("n", "/", "/\\v", opts)
 
 -- Center the pattern search in the buffer
