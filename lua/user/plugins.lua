@@ -51,6 +51,7 @@ return packer.startup(function(use)
   use "rpdelaney/vim-sourcecfg"           -- Syntax highlighting for TF2/CSGO config files
   use "jghauser/mkdir.nvim"
   use "windwp/nvim-autopairs"
+  use "numToStr/Comment.nvim"
 
   -- Colorschemes
   use "tomasiser/vim-code-dark"
@@ -82,6 +83,7 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "p00f/nvim-ts-rainbow"
+  use "JoosepAlviste/nvim-ts-context-commentstring"
 
   -- File tree explorer
   use {
