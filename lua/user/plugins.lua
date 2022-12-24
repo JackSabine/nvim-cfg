@@ -54,7 +54,7 @@ return packer.startup(function(use)
   use "numToStr/Comment.nvim"
 
   -- Colorschemes
-  use "tomasiser/vim-code-dark"
+  use "LunarVim/darkplus.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp"                  -- Completion plugin
