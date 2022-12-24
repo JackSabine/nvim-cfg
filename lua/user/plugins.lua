@@ -85,6 +85,9 @@ return packer.startup(function(use)
   use "p00f/nvim-ts-rainbow"
   use "JoosepAlviste/nvim-ts-context-commentstring"
 
+  -- Git
+  use "lewis6991/gitsigns.nvim"
+
   -- File tree explorer
   use {
     "nvim-tree/nvim-tree.lua",
