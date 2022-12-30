@@ -153,6 +153,10 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+-----------------
+-- LSP Keymaps --
+-----------------
+
 function Set_LSP_Keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -172,9 +176,17 @@ function Set_LSP_Keymaps(bufnr)
   Set_Format_Keymap(bufnr)
 end
 
+-------------------------
+-- LSP/null-ls Keymaps --
+-------------------------
+
 function Set_Format_Keymap(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-f>", "<cmd>lua vim.lsp.buf.format({async=true})<CR>", opts)
 end
+
+-----------------
+-- Git Keymaps --
+-----------------
 
 function Set_Gitsigns_Keyamps(bufnr)
   local gs = package.loaded.gitsigns
