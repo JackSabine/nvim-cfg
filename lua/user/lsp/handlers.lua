@@ -71,6 +71,12 @@ M.on_attach = function(client, bufnr)
   end
 
   Set_LSP_Keymaps(bufnr)
+
+  if client.server_capabilities.documentFormattingProvider then
+    -- If formatting wasn't disabled and is available, then set up
+    Set_Format_Keymap(bufnr)
+  end
+
   lsp_highlight_document(client)
 end
 

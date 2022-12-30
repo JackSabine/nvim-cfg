@@ -172,8 +172,6 @@ function Set_LSP_Keymaps(bufnr)
     '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "rounded"})<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-
-  Set_Format_Keymap(bufnr)
 end
 
 -------------------------
@@ -182,6 +180,9 @@ end
 
 function Set_Format_Keymap(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-f>", "<cmd>lua vim.lsp.buf.format({async=true})<CR>", opts)
+
+  -- formatting must not be async since it needs to finish before the buffer is written
+  vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async=false})")
 end
 
 -----------------

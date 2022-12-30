@@ -25,7 +25,7 @@ null_ls.setup({
   },
 
   on_attach = function(client, bufnr)
-    if client.server_capabilities.documentFormattingProvider  then
+    if client.server_capabilities.documentFormattingProvider then
       Set_Format_Keymap(bufnr)
     end
   end
