@@ -13,7 +13,14 @@ null_ls.setup({
   sources = {
     formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
     formatting.black.with({ extra_args = { "--fast" } }),
-    formatting.stylua,
+    formatting.stylua.with({
+      extra_args = {
+        "--indent-type Spaces",
+        "--quote-style AutoPreferDouble",
+        "--column-width 100",
+        "--call-parentheses Always"
+      }
+    }),
     -- diagnostics.flake8
   },
 })
