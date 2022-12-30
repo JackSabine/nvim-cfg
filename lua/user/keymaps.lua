@@ -44,7 +44,11 @@ keymap("n", "<Leader>p", "\"0p", opts)
 keymap("n", "<Leader>P", "\"0P", opts)
 
 -- Close current buffer
-keymap("n", "<Leader>xx", ":clo<CR>", opts)
+keymap("n", "<C-x>", ":Bdelete<CR>", opts)
+
+-- Navigate buffers
+keymap("n", "<S-l>", "<cmd>bnext<CR>", opts)
+keymap("n", "<S-h>", "<cmd>bprevious<CR>", opts)
 
 -- Quick nohighlight mapping
 keymap("n", "<Leader>h", ":noh<CR>", opts)

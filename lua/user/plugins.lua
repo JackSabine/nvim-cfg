@@ -97,6 +97,10 @@ return packer.startup(function(use)
     tag = "nightly" -- optional, updated every week
   }
 
+  -- Bufferline
+  use { "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons"}
+  use { "moll/vim-bbye" }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
