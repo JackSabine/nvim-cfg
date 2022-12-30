@@ -128,8 +128,7 @@ cmp.setup {
     },
   },
   experimental = {
-    ghost_text = true,    -- Suggest text as you're typing
+    ghost_text = true, -- Suggest text as you're typing
     native_menu = false,
   },
 }
-

@@ -1,4 +1,3 @@
-
 local servers_autoinstall = {
   "sumneko_lua",
   "pyright",
@@ -11,12 +10,12 @@ local servers_noinstall = {
 
 local servers = {}
 
-for i=1, #servers_autoinstall do
+for i = 1, #servers_autoinstall do
   servers[i] = servers_autoinstall[i]
 end
 
-for i=1, #servers_noinstall do
-  servers[#servers_autoinstall+i] = servers_noinstall[i]
+for i = 1, #servers_noinstall do
+  servers[#servers_autoinstall + i] = servers_noinstall[i]
 end
 
 local settings = {
