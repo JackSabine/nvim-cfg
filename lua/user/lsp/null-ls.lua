@@ -23,4 +23,10 @@ null_ls.setup({
     }),
     -- diagnostics.flake8
   },
+
+  on_attach = function(client, bufnr)
+    if client.server_capabilities.documentFormattingProvider  then
+      Set_Format_Keymap(bufnr)
+    end
+  end
 })
