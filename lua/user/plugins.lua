@@ -52,6 +52,7 @@ return packer.startup(function(use)
   use "jghauser/mkdir.nvim"
   use "windwp/nvim-autopairs"
   use "numToStr/Comment.nvim"
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- Colorschemes
   use "LunarVim/darkplus.nvim"
