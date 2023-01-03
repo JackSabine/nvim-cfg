@@ -53,6 +53,7 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs"
   use "numToStr/Comment.nvim"
   use "lukas-reineke/indent-blankline.nvim"
+  use "akinsho/toggleterm.nvim"
 
   -- Colorschemes
   use "LunarVim/darkplus.nvim"
