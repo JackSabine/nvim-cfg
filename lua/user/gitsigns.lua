@@ -46,7 +46,4 @@ gitsigns.setup {
   yadm = {
     enable = false,
   },
-  on_attach = function(bufnr)
-    Set_Gitsigns_Keyamps(bufnr)
-  end
 }
