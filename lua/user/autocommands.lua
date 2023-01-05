@@ -33,6 +33,10 @@ vim.cmd [[
     autocmd!
     autocmd BufWritePre * lua vim.lsp.buf.format({async=false})
   augroup end
+
+  augroup _hide_dap_repl
+    autocmd FileType dap-repl set nobuflisted
+  augroup end
 ]]
 
 --

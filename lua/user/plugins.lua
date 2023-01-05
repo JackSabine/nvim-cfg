@@ -109,6 +109,11 @@ return packer.startup(function(use)
   -- which-key
   use { "folke/which-key.nvim" }
 
+  -- debug adapter protocol
+  use { "mfussenegger/nvim-dap" }
+  use { "ldelossa/nvim-dap-projects", requires = { "mfussenegger/nvim-dap" } }
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
