@@ -38,6 +38,10 @@ vim.cmd [[
     autocmd FileType dap-repl set nobuflisted
   augroup end
 
+  augroup _dap_repl_cmp
+    autocmd FileType dap-repl lua require("dap.ext.autocompl").attach()
+  augroup end
+
   augroup _non_default_indents
     autocmd FileType cpp,c,python,json,javascript,jsx,matlab setlocal tabstop=4 shiftwidth=4 softtabstop=4
   augroup end
