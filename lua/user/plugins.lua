@@ -113,6 +113,7 @@ return packer.startup(function(use)
   use { "mfussenegger/nvim-dap" }
   use { "ldelossa/nvim-dap-projects", requires = { "mfussenegger/nvim-dap" } }
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+  use { "Weissle/persistent-breakpoints.nvim", requires = "mfussenegger/nvim-dap" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

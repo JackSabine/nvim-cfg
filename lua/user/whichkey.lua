@@ -110,7 +110,9 @@ local leader_mappings = {
 
   d = {
     name = "Debug",
-    t = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+    t = { "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+    T = { "<cmd>lua require('persistent-breakpoints.api').set_conditional_breakpoint()<cr>", "Set Conditional Breakpoint" },
+    x = { "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>", "Clear All Breakpoints" },
     b = { "<cmd>lua require('dap').step_back()<cr>", "Step Back" },
     c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
     C = { "<cmd>lua require('dap').run_to_cursor()<cr>", "Run To Cursor" },

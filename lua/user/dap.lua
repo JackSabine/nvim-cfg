@@ -29,6 +29,16 @@ for index, value in pairs(dap_symbols) do
 end
 
 ----------------------------------------
+--       Persistent Breakpoints       --
+----------------------------------------
+local status_ok_pbreakpt, pbreakpt = pcall(require, "persistent-breakpoints")
+if status_ok_pbreakpt then
+  pbreakpt.setup({
+    load_breakpoints_event = { "BufReadPost" },
+  })
+end
+
+----------------------------------------
 --            DAP Projects            --
 ----------------------------------------
 local status_ok_dap_projects, dap_projects = pcall(require, "nvim-dap-projects")
