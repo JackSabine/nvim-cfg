@@ -22,6 +22,12 @@ local dap_symbols = {
     linehl = "Visual",
     numhl = "DiagnosticSignWarn",
   },
+  ["DapBreakpointCondition"] = {
+    text = "",
+    texthl = "DiagnosticSignError",
+    linehl = "",
+    numhl = "",
+  }
 }
 
 for index, value in pairs(dap_symbols) do
