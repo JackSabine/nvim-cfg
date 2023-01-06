@@ -22,6 +22,9 @@ null_ls.setup({
         "--indent_width", "2",
       },
     }),
+    formatting.clang_format.with({
+      extra_args = { "--style", "{BasedOnStyle: llvm, IndentWidth: 4, ColumnLimit: 0}" },
+    }),
     -- diagnostics.flake8
   },
 })
