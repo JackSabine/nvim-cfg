@@ -37,6 +37,10 @@ vim.cmd [[
   augroup _hide_dap_repl
     autocmd FileType dap-repl set nobuflisted
   augroup end
+
+  augroup _non_default_indents
+    autocmd FileType cpp,c,python,json,javascript,jsx,matlab setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  augroup end
 ]]
 
 --
