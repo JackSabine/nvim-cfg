@@ -52,10 +52,12 @@ local options = {
   visualbell = false,
 
   -- <TAB> -> 2 spaces
-  expandtab = true,
-  tabstop = 2,
-  shiftwidth = 2,
-  softtabstop = 2,
+  -- https://arisweedler.medium.com/tab-settings-in-vim-1ea0863c5990
+  expandtab = true, -- convert all <TAB> keypresses into softtabstop whitespace characters
+  tabstop = 2, -- how many columns of whitespace is a \t character worth
+  shiftwidth = 2, -- how many columns of whitespace is a "level of indentation" worth
+  softtabstop = 2, -- how many columns of whitespace is a <TAB> keypress or a <BS> keypress worth
+  -- note that softtabstop is only relevant when expandtab is true
 
   whichwrap = "bs<>[]hl" -- which "horizontal" keys are allowed to travel to prev/next line
 }
