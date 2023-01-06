@@ -28,6 +28,9 @@ for index, value in pairs(dap_symbols) do
   vim.fn.sign_define(index, value)
 end
 
+----------------------------------------
+--            DAP Projects            --
+----------------------------------------
 local status_ok_dap_projects, dap_projects = pcall(require, "nvim-dap-projects")
 if status_ok_dap_projects then
   -- nvim-dap-projects will clobber all dap.adapters data
@@ -51,19 +54,22 @@ for key, value in pairs(global_dap_adapter_configs) do
   end
 end
 
+----------------------------------------
+--               DAPUI                --
+----------------------------------------
 local status_ok_dap_ui, dapui = pcall(require, "dapui")
-if not status_ok_dap_ui then
-  return
-end
+if status_ok_dap_ui then
+  dapui.setup()
 
-dapui.setup()
+  dap.listeners.after.event_initialized["dapui_config"] = function()
+    dapui.open()
+  end
 
-dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
+  dap.listeners.before.event_terminated["dapui_config"] = function()
+    dapui.close()
+  end
+
+  dap.listeners.before.event_exited["dapui_config"] = function()
+    dapui.close()
+  end
 end
