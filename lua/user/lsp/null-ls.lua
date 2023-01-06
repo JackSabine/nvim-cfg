@@ -11,15 +11,16 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
   debug = false,
   sources = {
-    formatting.prettier.with({ extra_args = { "--tab-width 4" } }),
+    formatting.prettier.with({ extra_args = { "--tab-width", "4" } }),
     formatting.black.with({ extra_args = { "--fast" } }),
     formatting.stylua.with({
       extra_args = {
-        "--indent-type Spaces",
-        "--quote-style AutoPreferDouble",
-        "--column-width 100",
-        "--call-parentheses Always"
-      }
+        "--indent-type", "Spaces",
+        "--quote-style", "AutoPreferDouble",
+        "--column-width", "100",
+        "--call-parentheses", "Always",
+        "--indent_width", "2",
+      },
     }),
     -- diagnostics.flake8
   },
