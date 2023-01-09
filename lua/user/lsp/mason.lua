@@ -8,6 +8,13 @@ local languageservers_autoinstall = {
 local languageservers_noinstall = {
 }
 
+local nonlanguageservers = {
+  "prettier",
+  "black",
+  "stylua",
+  "clang-format",
+}
+
 local languageservers = {}
 
 for i = 1, #languageservers_autoinstall do
@@ -33,6 +40,12 @@ local settings = {
 
 -- Provide mason-specific settings (UI, logs)
 require("mason").setup(settings)
+
+for _, v in pairs(nonlanguageservers) do
+  if not require("mason-registry").is_installed(v) then
+    vim.cmd(":MasonInstall " .. v)
+  end
+end
 
 -- Specify which packages should be installed by mason-lspconfig
 require("mason-lspconfig").setup({
