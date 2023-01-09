@@ -1,21 +1,21 @@
-local servers_autoinstall = {
+local languageservers_autoinstall = {
   "sumneko_lua",
   "pyright",
   "jsonls",
   "clangd",
 }
 
-local servers_noinstall = {
+local languageservers_noinstall = {
 }
 
-local servers = {}
+local languageservers = {}
 
-for i = 1, #servers_autoinstall do
-  servers[i] = servers_autoinstall[i]
+for i = 1, #languageservers_autoinstall do
+  languageservers[i] = languageservers_autoinstall[i]
 end
 
-for i = 1, #servers_noinstall do
-  servers[#servers_autoinstall + i] = servers_noinstall[i]
+for i = 1, #languageservers_noinstall do
+  languageservers[#languageservers_autoinstall + i] = languageservers_noinstall[i]
 end
 
 local settings = {
@@ -36,8 +36,8 @@ require("mason").setup(settings)
 
 -- Specify which packages should be installed by mason-lspconfig
 require("mason-lspconfig").setup({
-  ensure_installed = servers_autoinstall,
-  automatic_installation = { exclude = servers_noinstall },
+  ensure_installed = languageservers_autoinstall,
+  automatic_installation = { exclude = languageservers_noinstall },
 })
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
@@ -48,7 +48,7 @@ end
 local opts = {}
 
 -- Prepare to set up each LSP server listed in this file
-for _, server in pairs(servers) do
+for _, server in pairs(languageservers) do
   -- Use generic on_attach and capabilities defined in user.lsp.handlers
   opts = {
     on_attach = require("user.lsp.handlers").on_attach,
