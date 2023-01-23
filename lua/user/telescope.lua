@@ -106,5 +106,12 @@ telescope.setup {
     --   extension_config_key = value,
     -- }
     -- please take a look at the readme of the extension you want to configure
+    rooter = {
+      enable = true,
+      patterns = { ".git", },
+      debug = false,
+    },
   },
 }
+
+telescope.load_extension("rooter")
