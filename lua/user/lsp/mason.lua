@@ -8,6 +8,14 @@ local languageservers_autoinstall = {
   "pyright",
   "jsonls",
   "clangd",
+  "eslint",
+  "bashls",
+  "marksman",
+  -- "nimls",
+  "svlangserver",
+  -- "verible",
+  "vimls",
+  "yamlls",
 }
 
 local languageservers_noinstall = {
