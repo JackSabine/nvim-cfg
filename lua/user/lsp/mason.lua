@@ -1,3 +1,8 @@
+local mason_ok, mason = pcall(require, "mason")
+if not mason_ok then
+  return
+end
+
 local languageservers_autoinstall = {
   "sumneko_lua",
   "pyright",
@@ -39,7 +44,7 @@ local settings = {
 }
 
 -- Provide mason-specific settings (UI, logs)
-require("mason").setup(settings)
+mason.setup(settings)
 
 for _, v in pairs(nonlanguageservers) do
   if not require("mason-registry").is_installed(v) then
