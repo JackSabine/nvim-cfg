@@ -222,6 +222,8 @@ local mappings = {
   ["<C-l>"] = { "<cmd>bnext<CR>", "Next Buffer" },
   ["<C-h>"] = { "<cmd>bprevious<CR>", "Prev Buffer" },
   ["<C-n>"] = { "<cmd>lua vim.opt.relativenumber = not(vim.opt.relativenumber:get())<CR>", "Toggle Relative Number" },
+  -- <CR> is mapped in markdown files by jghauser/follow-md-links.nvim
+  ["<BS>"] = { "<cmd>:edit #<CR>", "Return to previous file" },
 }
 
 which_key.setup(setup)

@@ -54,6 +54,7 @@ return packer.startup(function(use)
   use "numToStr/Comment.nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use "akinsho/toggleterm.nvim"
+  use "jghauser/follow-md-links.nvim"
 
   -- Colorschemes
   use "LunarVim/darkplus.nvim"
