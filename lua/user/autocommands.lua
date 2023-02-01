@@ -29,11 +29,6 @@ vim.cmd [[
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
 
-  augroup _lsp
-    autocmd!
-    autocmd BufWritePre * lua vim.lsp.buf.format({async=false})
-  augroup end
-
   augroup _hide_dap_repl
     autocmd FileType dap-repl set nobuflisted
   augroup end
@@ -48,3 +43,29 @@ vim.cmd [[
 ]]
 
 --
+
+FormatOnSaveEnabled = false
+
+function ToggleFormatOnSave()
+  if FormatOnSaveEnabled then
+    vim.cmd([[
+      autocmd! _lsp_autoformat
+    ]])
+
+    print("Disabled format on save")
+
+  else
+    vim.cmd([[
+      augroup _lsp_autoformat
+        autocmd!
+        autocmd BufWritePre * lua vim.lsp.buf.format({async=false})
+      augroup end
+    ]])
+
+    print("Enabled format on save")
+  end
+
+  FormatOnSaveEnabled = not FormatOnSaveEnabled
+end
+
+ToggleFormatOnSave()

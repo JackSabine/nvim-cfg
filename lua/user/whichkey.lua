@@ -165,6 +165,7 @@ local leader_mappings = {
     R = { "<cmd>lua vim.lsp.buf.references()<CR>", "References" },
     s = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
     S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "Workspace Symbols" },
+    t = { "<cmd>lua ToggleFormatOnSave()<CR>", "Toggle Format on Save augroup" },
     w = { "<cmd>Telescope diagnostics bufnr=0<CR>", "Document Diagnostics" },
     W = { "<cmd>Telescope diagnostics<CR>", "Workspace Diagnostics" },
     z = { "<cmd>lua vim.diagnostic.open_float(0, { scope = 'line', border = 'rounded'})<CR>", "Diagnostic" },
