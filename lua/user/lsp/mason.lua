@@ -95,3 +95,8 @@ for _, server in pairs(languageservers) do
   -- Finally, call setup for the LSP
   lspconfig[server].setup(opts)
 end
+
+local require_ok, nlspsettings = pcall(require, "nlspsettings")
+if require_ok then
+  nlspsettings.setup()
+end
