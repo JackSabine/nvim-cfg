@@ -6,7 +6,6 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 -- Remap comma as leader key
-keymap("", ",", "<Nop>", opts)
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
@@ -21,12 +20,6 @@ vim.g.maplocalleader = ","
 ------------------
 --    Normal    --
 ------------------
-
--- Better pane navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize pane with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
