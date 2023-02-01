@@ -18,6 +18,7 @@ local nonlanguageservers = {
   "black",
   "stylua",
   "clang-format",
+  "beautysh",
 }
 
 local languageservers = {}

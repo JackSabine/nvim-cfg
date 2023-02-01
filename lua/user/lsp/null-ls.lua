@@ -25,6 +25,9 @@ null_ls.setup({
     formatting.clang_format.with({
       extra_args = { "--style", "{BasedOnStyle: llvm, IndentWidth: 4, ColumnLimit: 0}" },
     }),
+    formatting.beautysh.with({
+      extra_args = { "--indent-size", "2", "--force-function-style", "fnpar" }
+    }),
     -- diagnostics.flake8
   },
 })
