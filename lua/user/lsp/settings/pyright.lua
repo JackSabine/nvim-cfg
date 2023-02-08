@@ -3,8 +3,8 @@ return {
 
     python = {
       analysis = {
-        typeCheckingMode = "off"
-      }
-    }
+        typeCheckingMode = "off",
+      },
+    },
   },
 }

@@ -27,7 +27,7 @@ local dap_symbols = {
     texthl = "DiagnosticSignError",
     linehl = "",
     numhl = "",
-  }
+  },
 }
 
 for index, value in pairs(dap_symbols) do

@@ -10,14 +10,10 @@ npairs.setup({
   -- `lua = {"string"}`
   -- `javascript = {"template_string"}`
   -- `java = false`
-  ts_config = {
-
-  },
-
+  ts_config = {},
   -- Disable autopairs when filetype in this table
   -- Check the current ft with `:echo &ft`
   disable_filetype = { "TelescopePrompt" },
-
   fast_wrap = {
     map = "<M-e>",
     chars = { "{", "[", "(", '"', "'" },
@@ -26,8 +22,8 @@ npairs.setup({
     keys = "qwertyuiopzxcvbnmasdfghjkl",
     check_comma = true,
     highlight = "Search",
-    highlight_grey = "Comment"
-  }
+    highlight_grey = "Comment",
+  },
 })
 
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")

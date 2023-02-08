@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-configs.setup {
+configs.setup({
   -- A list of parser names or "all"
   ensure_installed = "all",
 
@@ -15,7 +15,7 @@ configs.setup {
 
   -- Allow nvim-autopairs to hook into treesitter
   autopairs = {
-    enable = true
+    enable = true,
   },
 
   highlight = {
@@ -38,7 +38,6 @@ configs.setup {
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
-
   },
   indent = { enable = true, disable = { "yaml" } },
 
@@ -57,4 +56,4 @@ configs.setup {
     enable = true,
     enable_autocmd = false,
   },
-}
+})

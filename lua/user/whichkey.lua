@@ -86,8 +86,10 @@ local leader_opts = {
 
 local leader_mappings = {
   -- ["a"] = { "<cmd>Alpha<CR>", "Alpha" },
-  ["b"] = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({previewer = false}))<CR>",
-    "Buffers" },
+  ["b"] = {
+    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({previewer = false}))<CR>",
+    "Buffers",
+  },
   ["c"] = { '"+y', "Clipboard Yank" },
   -- d: dap
   ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
@@ -110,9 +112,18 @@ local leader_mappings = {
 
   d = {
     name = "Debug",
-    t = { "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
-    T = { "<cmd>lua require('persistent-breakpoints.api').set_conditional_breakpoint()<cr>", "Set Conditional Breakpoint" },
-    x = { "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>", "Clear All Breakpoints" },
+    t = {
+      "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>",
+      "Toggle Breakpoint",
+    },
+    T = {
+      "<cmd>lua require('persistent-breakpoints.api').set_conditional_breakpoint()<cr>",
+      "Set Conditional Breakpoint",
+    },
+    x = {
+      "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>",
+      "Clear All Breakpoints",
+    },
     b = { "<cmd>lua require('dap').step_back()<cr>", "Step Back" },
     c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
     C = { "<cmd>lua require('dap').run_to_cursor()<cr>", "Run To Cursor" },
@@ -127,7 +138,6 @@ local leader_mappings = {
     q = { "<cmd>lua require('dap').close()<cr>", "Quit" },
     U = { "<cmd>lua require('dapui').toggle({reset = true})<cr>", "Toggle UI" },
   },
-
   g = {
     name = "Git",
     -- g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
@@ -145,7 +155,6 @@ local leader_mappings = {
     c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
     d = { "<cmd>Gitsigns diffthis HEAD<CR>", "Diff" },
   },
-
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
@@ -168,9 +177,11 @@ local leader_mappings = {
     t = { "<cmd>lua ToggleFormatOnSave()<CR>", "Toggle Format on Save augroup" },
     w = { "<cmd>Telescope diagnostics bufnr=0<CR>", "Document Diagnostics" },
     W = { "<cmd>Telescope diagnostics<CR>", "Workspace Diagnostics" },
-    z = { "<cmd>lua vim.diagnostic.open_float(0, { scope = 'line', border = 'rounded'})<CR>", "Diagnostic" },
+    z = {
+      "<cmd>lua vim.diagnostic.open_float(0, { scope = 'line', border = 'rounded'})<CR>",
+      "Diagnostic",
+    },
   },
-
   p = {
     name = "Packer",
     c = { "<cmd>PackerCompile<CR>", "Compile" },
@@ -179,7 +190,6 @@ local leader_mappings = {
     S = { "<cmd>PackerStatus<CR>", "Status" },
     u = { "<cmd>PackerUpdate<CR>", "Update" },
   },
-
   s = {
     name = "Search",
     b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
@@ -191,7 +201,6 @@ local leader_mappings = {
     k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
     C = { "<cmd>Telescope commands<CR>", "Commands" },
   },
-
   t = {
     name = "Terminal",
     n = { "<cmd>lua _NODE_TOGGLE()<CR>", "Node" },
@@ -222,7 +231,10 @@ local mappings = {
   ["<M-x>"] = { "<cmd>Bdelete!<CR>", "Force Close Buffer" },
   ["<C-l>"] = { "<cmd>bnext<CR>", "Next Buffer" },
   ["<C-h>"] = { "<cmd>bprevious<CR>", "Prev Buffer" },
-  ["<C-n>"] = { "<cmd>lua vim.opt.relativenumber = not(vim.opt.relativenumber:get())<CR>", "Toggle Relative Number" },
+  ["<C-n>"] = {
+    "<cmd>lua vim.opt.relativenumber = not(vim.opt.relativenumber:get())<CR>",
+    "Toggle Relative Number",
+  },
   -- <CR> is mapped in markdown files by jghauser/follow-md-links.nvim
   ["<BS>"] = { "<cmd>:edit #<CR>", "Return to previous file" },
 }

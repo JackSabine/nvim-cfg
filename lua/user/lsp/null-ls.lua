@@ -15,18 +15,26 @@ null_ls.setup({
     formatting.black.with({ extra_args = { "--fast" } }),
     formatting.stylua.with({
       extra_args = {
-        "--indent-type", "Spaces",
-        "--quote-style", "AutoPreferDouble",
-        "--column-width", "100",
-        "--call-parentheses", "Always",
-        "--indent-width", "2",
+        "--indent-type",
+        "Spaces",
+        "--quote-style",
+        "AutoPreferDouble",
+        "--column-width",
+        "100",
+        "--call-parentheses",
+        "Always",
+        "--indent-width",
+        "2",
       },
     }),
     formatting.clang_format.with({
-      extra_args = { "--style", "{BasedOnStyle: llvm, IndentWidth: 4, IndentAccessModifiers: false, BinPackParameters: false, BreakConstructorInitializers: BeforeComma}" },
+      extra_args = {
+        "--style",
+        "{BasedOnStyle: llvm, IndentWidth: 4, IndentAccessModifiers: false, BinPackParameters: false, BreakConstructorInitializers: BeforeComma}",
+      },
     }),
     formatting.beautysh.with({
-      extra_args = { "--indent-size", "2", "--force-function-style", "fnpar" }
+      extra_args = { "--indent-size", "2", "--force-function-style", "fnpar" },
     }),
     -- diagnostics.flake8
   },

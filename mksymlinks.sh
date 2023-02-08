@@ -7,4 +7,3 @@ IFS=$'\n\t'
 parent_abs_path=$(dirname "$(readlink -f "$0")")
 
 ln -s ${parent_abs_path} ~/.config/nvim
-

@@ -17,10 +17,10 @@ nvimtree.setup({
     side = "left",
     mappings = {
       list = {
-        { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-        { key = "h", cb = tree_cb "close_node" },
+        { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
+        { key = "h", cb = tree_cb("close_node") },
         -- { key = "v", cb = tree_cb "vsplit" },
-        { key = { "<Esc>", "q" }, cb = tree_cb "close" },
+        { key = { "<Esc>", "q" }, cb = tree_cb("close") },
         { key = "u", action = "dir_up" },
       },
     },
@@ -28,7 +28,6 @@ nvimtree.setup({
   filters = {
     dotfiles = true,
   },
-
   update_focused_file = {
     enable = true,
     update_root = true,

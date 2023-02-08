@@ -18,8 +18,7 @@ local languageservers_autoinstall = {
   "yamlls",
 }
 
-local languageservers_noinstall = {
-}
+local languageservers_noinstall = {}
 
 local nonlanguageservers = {
   "prettier",

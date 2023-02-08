@@ -6,9 +6,9 @@ end
 -- Vaguely following nvim-ts-context-commentstring guide for Comment.nvim integration
 -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring#commentnvim
 -- Copying: https://github.com/LunarVim/Neovim-from-scratch/blob/0fd9cefa9b01cdb5cd89b394ed5b54b3c4f5eaf1/lua/user/comment.lua
-comment.setup {
+comment.setup({
   pre_hook = function(ctx)
-    local U = require "Comment.utils"
+    local U = require("Comment.utils")
 
     local status_utils_ok, utils = pcall(require, "ts_context_commentstring.utils")
     if not status_utils_ok then
@@ -27,9 +27,9 @@ comment.setup {
       return
     end
 
-    return internals.calculate_commentstring {
+    return internals.calculate_commentstring({
       key = ctx.ctype == U.ctype.line and "__default" or "__multiline",
       location = location,
-    }
+    })
   end,
-}
+})

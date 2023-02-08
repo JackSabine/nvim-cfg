@@ -1,4 +1,4 @@
-vim.cmd [[
+vim.cmd([[
   augroup _general_settings
     autocmd!
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR>
@@ -40,7 +40,7 @@ vim.cmd [[
   augroup _non_default_indents
     autocmd FileType cpp,c,python,json,javascript,jsx,matlab setlocal tabstop=4 shiftwidth=4 softtabstop=4
   augroup end
-]]
+]])
 
 --
 
@@ -53,7 +53,6 @@ function ToggleFormatOnSave()
     ]])
 
     print("Disabled format on save")
-
   else
     vim.cmd([[
       augroup _lsp_autoformat

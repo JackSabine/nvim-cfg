@@ -1,6 +1,6 @@
 local M = {}
 
-local formattersToDisable = { "tsserver", "jsonls", }
+local formattersToDisable = { "tsserver", "jsonls" }
 
 -- TODO: backfill this to template
 M.setup = function()
@@ -56,7 +56,7 @@ local function lsp_highlight_document(client)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]] ,
+    ]],
       false
     )
   end

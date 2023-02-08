@@ -27,16 +27,13 @@ local options = {
   numberwidth = 4, -- set number line-number column width
   signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
   termguicolors = true, -- use more terminal colors (colorschemes will be more accurate!)
-
   -- Line numbers and columns
   relativenumber = true, -- show up/down count relative to cursorline
   number = true, -- show line numbers (needed for absolute or relative to work)
   ruler = true, -- show line/column in statusline
-
   -- Better searching settings
   hlsearch = true, -- highlight search matches in buffer
   incsearch = true, -- show matches while typing search
-
   -- pattern  'ignorecase'  'smartcase'  matches ~
   -- foo      off           -            foo
   -- foo      on            -            foo Foo FOO
@@ -46,11 +43,9 @@ local options = {
   -- foo\C    -             -            foo
   ignorecase = true,
   smartcase = true,
-
   -- Nobody likes bells...
   errorbells = false,
   visualbell = false,
-
   -- <TAB> -> 2 spaces
   -- https://arisweedler.medium.com/tab-settings-in-vim-1ea0863c5990
   expandtab = true, -- convert all <TAB> keypresses into softtabstop whitespace characters
@@ -59,7 +54,7 @@ local options = {
   softtabstop = 2, -- how many columns of whitespace is a <TAB> keypress or a <BS> keypress worth
   -- note that softtabstop is only relevant when expandtab is true
 
-  whichwrap = "bs<>[]hl" -- which "horizontal" keys are allowed to travel to prev/next line
+  whichwrap = "bs<>[]hl", -- which "horizontal" keys are allowed to travel to prev/next line
 }
 
 vim.opt.shortmess:append("c") -- don't give |ins-complete-menu| mesasges
