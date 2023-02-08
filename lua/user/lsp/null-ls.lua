@@ -23,7 +23,7 @@ null_ls.setup({
       },
     }),
     formatting.clang_format.with({
-      extra_args = { "--style", "{BasedOnStyle: llvm, IndentWidth: 4, ColumnLimit: 0}" },
+      extra_args = { "--style", "{BasedOnStyle: llvm, IndentWidth: 4, IndentAccessModifiers: false, BinPackParameters: false, BreakConstructorInitializers: BeforeComma}" },
     }),
     formatting.beautysh.with({
       extra_args = { "--indent-size", "2", "--force-function-style", "fnpar" }
