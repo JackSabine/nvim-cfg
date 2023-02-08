@@ -19,7 +19,7 @@ null_ls.setup({
         "--quote-style", "AutoPreferDouble",
         "--column-width", "100",
         "--call-parentheses", "Always",
-        "--indent_width", "2",
+        "--indent-width", "2",
       },
     }),
     formatting.clang_format.with({
