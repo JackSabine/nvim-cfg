@@ -30,7 +30,13 @@ null_ls.setup({
     formatting.clang_format.with({
       extra_args = {
         "--style",
-        "{BasedOnStyle: llvm, IndentWidth: 4, IndentAccessModifiers: false, BinPackParameters: false, BreakConstructorInitializers: BeforeComma}",
+        "{"
+          .. "BasedOnStyle: llvm,"
+          .. "AccessModifierOffset: -4,"
+          .. "BinPackParameters: false,"
+          .. "BreakConstructorInitializers: BeforeComma,"
+          .. "IndentWidth: 4,"
+          .. "}",
       },
     }),
     formatting.beautysh.with({
