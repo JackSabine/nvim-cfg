@@ -4,7 +4,7 @@ if not mason_ok then
 end
 
 local languageservers_autoinstall = {
-  "sumneko_lua",
+  "lua_ls",
   "pyright",
   "jsonls",
   "clangd",
