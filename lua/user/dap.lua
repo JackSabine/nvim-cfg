@@ -47,6 +47,12 @@ end
 ----------------------------------------
 --            DAP Projects            --
 ----------------------------------------
+
+-- DAP Projects, by default, will look in each project's root for a lua file with one of the following name patterns:
+-- ./.nvim-dap/nvim-dap.lua
+-- ./.nvim-dap.lua
+-- ./.nvim/nvim-dap.lua
+
 local status_ok_dap_projects, dap_projects = pcall(require, "nvim-dap-projects")
 if status_ok_dap_projects then
   -- nvim-dap-projects will clobber all dap.adapters data
@@ -54,7 +60,8 @@ if status_ok_dap_projects then
   dap_projects.search_project_config()
 end
 
--- Table of global DAP adapter configs (overridable by settings found by nvim-dap-projects)
+-- DAP adapter configs
+-- These can be overriden with settings found by nvim-dap-projects
 local global_dap_adapter_configs = {
   cppdbg = {
     id = "cppdbg",
@@ -93,4 +100,66 @@ if status_ok_dap_ui then
   dap.listeners.before.event_exited["dapui_config"] = function()
     dapui.close()
   end
+end
+
+-- TODO:
+-- Auto-generate/append to dictionary if possible
+-- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
+
+local function formatJSON(data)
+  local command = "echo " .. "'" .. data .. "' | prettier --parser json-stringify --tab-width 4"
+
+  local handle = io.popen(command)
+  assert(handle ~= nil)
+  return handle:read("*a")
+end
+
+function NewLaunchConfig(path, formatOutput)
+  local resolved_path = path or (vim.fn.getcwd() .. "/launch.json")
+  local resolved_fmt = formatOutput or true
+  local data
+  local config = {
+    foobar = "hello",
+  }
+
+  -- Check if file already exists
+  if vim.loop.fs_stat(resolved_path) then
+    -- If file exists, parse it and convert the JSON structure to a table
+
+    -- Insert non-comment lines to a string array `lines`
+    local lines = {}
+    for line in io.lines(resolved_path) do
+      if not vim.startswith(vim.trim(line), "//") then
+        table.insert(lines, line)
+      end
+    end
+
+    -- Convert string array to a newline-delimited string
+    local contents = table.concat(lines, "\n")
+    -- Convert string to table
+    data = vim.json.decode(contents)
+    assert(data ~= nil)
+
+    assert(data.configurations, "launch.json must have a 'configurations' key")
+  else
+    -- File doesn't exist, so create an empty structure
+    data = {}
+    data.configurations = {}
+  end
+
+  -- Add a pre-determined config to the table
+  data = table.insert(data.configurations, config)
+  local json = vim.json.encode(data)
+  print("##### BEFORE #####\n", json)
+  if resolved_fmt then
+    print("Calling formatJSON")
+    json = formatJSON(json)
+  end
+  print("##### AFTER #####\n", json)
+
+  local outfile = io.open(resolved_path, "w")
+  assert(outfile ~= nil)
+  io.output(outfile)
+  io.write(json)
+  io.close(outfile)
 end
