@@ -136,11 +136,18 @@ function NewLaunchConfig(path, formatOutput)
 
     -- Convert string array to a newline-delimited string
     local contents = table.concat(lines, "\n")
-    -- Convert string to table
-    data = vim.json.decode(contents)
-    assert(data ~= nil)
+    if contents ~= "" then
+      -- Convert string to table
+      data = vim.json.decode(contents)
+    end
 
-    assert(data.configurations, "launch.json must have a 'configurations' key")
+    if data == nil or data == vim.NIL then
+      data = {}
+    end
+
+    if data.configurations == nil then
+      data.configurations = {}
+    end
   else
     -- File doesn't exist, so create an empty structure
     data = {}
@@ -148,14 +155,11 @@ function NewLaunchConfig(path, formatOutput)
   end
 
   -- Add a pre-determined config to the table
-  data = table.insert(data.configurations, config)
+  table.insert(data.configurations, config)
   local json = vim.json.encode(data)
-  print("##### BEFORE #####\n", json)
   if resolved_fmt then
-    print("Calling formatJSON")
     json = formatJSON(json)
   end
-  print("##### AFTER #####\n", json)
 
   local outfile = io.open(resolved_path, "w")
   assert(outfile ~= nil)
