@@ -106,6 +106,33 @@ end
 -- Auto-generate/append to dictionary if possible
 -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
 
+local configs = {
+  ["c-cpp-rust"] = {
+    name = "Launch file",
+    type = "cppdbg",
+    request = "launch",
+    program = "a.out",
+    cwd = "${workspaceFolder}",
+    stopAtEntry = true,
+    args = {},
+  },
+}
+
+local configByLanguage = {
+  ["c"] = configs["c-cpp-rust"],
+  ["cpp"] = configs["c-cpp-rust"],
+  ["rust"] = configs["c-cpp-rust"],
+}
+
+local function getConfig(language)
+  if configByLanguage[language] == nil then
+    print("No default DAP configuration set for language " .. language)
+    return {}
+  else
+    return configByLanguage[language]
+  end
+end
+
 local function formatJSON(data)
   local command = "echo " .. "'" .. data .. "' | prettier --parser json-stringify --tab-width 4"
 
@@ -118,9 +145,7 @@ function NewLaunchConfig(path, formatOutput)
   local resolved_path = path or (vim.fn.getcwd() .. "/launch.json")
   local resolved_fmt = formatOutput or true
   local data
-  local config = {
-    foobar = "hello",
-  }
+  local config = getConfig(vim.bo.filetype)
 
   -- Check if file already exists
   if vim.loop.fs_stat(resolved_path) then
