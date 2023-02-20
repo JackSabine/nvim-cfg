@@ -26,6 +26,7 @@ local nonlanguageservers = {
   "stylua",
   "clang-format",
   "beautysh",
+  "cpptools",
 }
 
 local languageservers = {}
