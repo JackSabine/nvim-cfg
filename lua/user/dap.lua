@@ -127,7 +127,7 @@ local configByLanguage = {
 local function getConfig(language)
   if configByLanguage[language] == nil then
     print("No default DAP configuration set for language " .. language)
-    return {}
+    return nil
   else
     return configByLanguage[language]
   end
@@ -146,6 +146,10 @@ function NewLaunchConfig(path, formatOutput)
   local resolved_fmt = formatOutput or true
   local data
   local config = getConfig(vim.bo.filetype)
+
+  if config == nil then
+    return
+  end
 
   -- Check if file already exists
   if vim.loop.fs_stat(resolved_path) then
