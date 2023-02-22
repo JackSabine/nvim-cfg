@@ -53,12 +53,15 @@ end
 -- ./.nvim-dap.lua
 -- ./.nvim/nvim-dap.lua
 
-local status_ok_dap_projects, dap_projects = pcall(require, "nvim-dap-projects")
-if status_ok_dap_projects then
-  -- nvim-dap-projects will clobber all dap.adapters data
-  -- https://github.com/ldelossa/nvim-dap-projects/blob/f319ffd99c6c8a0b930bcfc4bee0c751ffbf5808/lua/nvim-dap-projects.lua#L23
-  dap_projects.search_project_config()
-end
+-- local status_ok_dap_projects, dap_projects = pcall(require, "nvim-dap-projects")
+-- if status_ok_dap_projects then
+--   -- nvim-dap-projects will clobber all dap.adapters data
+--   -- https://github.com/ldelossa/nvim-dap-projects/blob/f319ffd99c6c8a0b930bcfc4bee0c751ffbf5808/lua/nvim-dap-projects.lua#L23
+--   dap_projects.search_project_config()
+-- end
+
+require("dap.ext.vscode").load_launchjs(nil, { cppdbg = { "c", "cpp", "rust" } })
+print("Loading launch.json")
 
 -- DAP adapter configs
 -- These can be overriden with settings found by nvim-dap-projects
