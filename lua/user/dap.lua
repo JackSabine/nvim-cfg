@@ -94,13 +94,21 @@ end
 
 local configs = {
   ["c-cpp-rust"] = {
-    name = "Launch file",
     type = "cppdbg",
+    name = "Launch current C/C++/Rust file",
     request = "launch",
-    program = "a.out",
-    cwd = "${workspaceFolder}",
-    stopAtEntry = true,
     args = {},
+    cwd = "${workspaceFolder}",
+    program = "a.out",
+    stopAtEntry = true,
+  },
+  {
+    type = "python",
+    name = "Launch current Python file",
+    request = "launch",
+    args = {},
+    program = "${file}",
+    pythonPath = "${workspaceFolder}/.venv/bin/python",
   },
 }
 
