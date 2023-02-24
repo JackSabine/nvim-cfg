@@ -44,17 +44,10 @@ if status_ok_pbreakpt then
   })
 end
 
-----------------------------------------
---            DAP Projects            --
-----------------------------------------
-local status_ok_dap_projects, dap_projects = pcall(require, "nvim-dap-projects")
-if status_ok_dap_projects then
-  -- nvim-dap-projects will clobber all dap.adapters data
-  -- https://github.com/ldelossa/nvim-dap-projects/blob/f319ffd99c6c8a0b930bcfc4bee0c751ffbf5808/lua/nvim-dap-projects.lua#L23
-  dap_projects.search_project_config()
-end
+require("dap.ext.vscode").load_launchjs(nil, { cppdbg = { "c", "cpp", "rust" } })
 
--- Table of global DAP adapter configs (overridable by settings found by nvim-dap-projects)
+-- DAP adapter configs
+-- These can be overriden with settings found by nvim-dap-projects
 local global_dap_adapter_configs = {
   cppdbg = {
     id = "cppdbg",
@@ -93,4 +86,107 @@ if status_ok_dap_ui then
   dap.listeners.before.event_exited["dapui_config"] = function()
     dapui.close()
   end
+end
+
+-- TODO:
+-- Auto-generate/append to dictionary if possible
+-- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
+
+local configs = {
+  ["c-cpp-rust"] = {
+    type = "cppdbg",
+    name = "Launch current C/C++/Rust file",
+    request = "launch",
+    args = {},
+    cwd = "${workspaceFolder}",
+    program = "a.out",
+    stopAtEntry = true,
+  },
+  {
+    type = "python",
+    name = "Launch current Python file",
+    request = "launch",
+    args = {},
+    program = "${file}",
+    pythonPath = "${workspaceFolder}/.venv/bin/python",
+  },
+}
+
+local configByLanguage = {
+  ["c"] = configs["c-cpp-rust"],
+  ["cpp"] = configs["c-cpp-rust"],
+  ["rust"] = configs["c-cpp-rust"],
+}
+
+local function getConfig(language)
+  if configByLanguage[language] == nil then
+    print("No default DAP configuration set for language " .. language)
+    return nil
+  else
+    return configByLanguage[language]
+  end
+end
+
+local function formatJSON(data)
+  local command = "echo " .. "'" .. data .. "' | prettier --parser json-stringify --tab-width 4"
+
+  local handle = io.popen(command)
+  assert(handle ~= nil)
+  return handle:read("*a")
+end
+
+function NewLaunchConfig(path, formatOutput)
+  local resolved_path = path or (vim.fn.getcwd() .. "/.vscode/launch.json")
+  local resolved_fmt = formatOutput or true
+  local data
+  local config = getConfig(vim.bo.filetype)
+
+  if config == nil then
+    return
+  end
+
+  -- Check if file already exists
+  if vim.loop.fs_stat(resolved_path) then
+    -- If file exists, parse it and convert the JSON structure to a table
+
+    -- Insert non-comment lines to a string array `lines`
+    local lines = {}
+    for line in io.lines(resolved_path) do
+      if not vim.startswith(vim.trim(line), "//") then
+        table.insert(lines, line)
+      end
+    end
+
+    -- Convert string array to a newline-delimited string
+    local contents = table.concat(lines, "\n")
+    if contents ~= "" then
+      -- Convert string to table
+      data = vim.json.decode(contents)
+    end
+
+    if data == nil or data == vim.NIL then
+      data = {}
+    end
+
+    if data.configurations == nil then
+      data.configurations = {}
+    end
+  else
+    -- File doesn't exist, so create an empty structure
+    data = {}
+    data.configurations = {}
+  end
+
+  -- Add a pre-determined config to the table
+  table.insert(data.configurations, config)
+  local json = vim.json.encode(data)
+  if resolved_fmt then
+    json = formatJSON(json)
+  end
+
+  local outfile = io.open(resolved_path, "w")
+  assert(outfile ~= nil)
+  io.output(outfile)
+  io.write(json)
+  io.close(outfile)
 end
