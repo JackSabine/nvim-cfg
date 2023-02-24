@@ -44,24 +44,7 @@ if status_ok_pbreakpt then
   })
 end
 
-----------------------------------------
---            DAP Projects            --
-----------------------------------------
-
--- DAP Projects, by default, will look in each project's root for a lua file with one of the following name patterns:
--- ./.nvim-dap/nvim-dap.lua
--- ./.nvim-dap.lua
--- ./.nvim/nvim-dap.lua
-
--- local status_ok_dap_projects, dap_projects = pcall(require, "nvim-dap-projects")
--- if status_ok_dap_projects then
---   -- nvim-dap-projects will clobber all dap.adapters data
---   -- https://github.com/ldelossa/nvim-dap-projects/blob/f319ffd99c6c8a0b930bcfc4bee0c751ffbf5808/lua/nvim-dap-projects.lua#L23
---   dap_projects.search_project_config()
--- end
-
 require("dap.ext.vscode").load_launchjs(nil, { cppdbg = { "c", "cpp", "rust" } })
-print("Loading launch.json")
 
 -- DAP adapter configs
 -- These can be overriden with settings found by nvim-dap-projects
@@ -145,7 +128,7 @@ local function formatJSON(data)
 end
 
 function NewLaunchConfig(path, formatOutput)
-  local resolved_path = path or (vim.fn.getcwd() .. "/launch.json")
+  local resolved_path = path or (vim.fn.getcwd() .. "/.vscode/launch.json")
   local resolved_fmt = formatOutput or true
   local data
   local config = getConfig(vim.bo.filetype)
