@@ -61,6 +61,11 @@ local global_dap_adapter_configs = {
     type = "executable",
     command = vim.fn.stdpath("data") .. "/mason/bin/OpenDebugAD7",
   },
+  python = {
+    type = "executable",
+    command = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python",
+    args = { "-m", "debugpy.adapter" },
+  },
 }
 
 -- If a local DAP adapter config isn't given, add the entry to dap.adapters

@@ -27,6 +27,7 @@ local nonlanguageservers = {
   "clang-format",
   "beautysh",
   "cpptools",
+  "debugpy",
 }
 
 local languageservers = {}
