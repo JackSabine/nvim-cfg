@@ -10,4 +10,3 @@ require("user.dap.dapui")
 require("dap.ext.vscode").load_launchjs(nil, { cppdbg = { "c", "cpp", "rust" } })
 
 require("user.dap.adapters")
-require("user.dap.launch-gen")

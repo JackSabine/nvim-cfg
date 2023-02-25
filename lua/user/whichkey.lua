@@ -137,6 +137,7 @@ local leader_mappings = {
     s = { "<cmd>lua require('dap').continue()<cr>", "Start" },
     q = { "<cmd>lua require('dap').close()<cr>", "Quit" },
     U = { "<cmd>lua require('dapui').toggle({reset = true})<cr>", "Toggle UI" },
+    z = { "<cmd>lua require('launch-gen').NewLaunchConfig()<CR>", "Create launch.json config" },
   },
   g = {
     name = "Git",
