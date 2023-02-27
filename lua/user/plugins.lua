@@ -55,6 +55,7 @@ return packer.startup(function(use)
   use("lukas-reineke/indent-blankline.nvim")
   use("akinsho/toggleterm.nvim")
   use("jghauser/follow-md-links.nvim")
+  use("JackSabine/launch-gen")
 
   -- Colorschemes
   use("LunarVim/darkplus.nvim")
