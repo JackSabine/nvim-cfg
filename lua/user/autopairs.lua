@@ -14,6 +14,7 @@ npairs.setup({
   -- Disable autopairs when filetype in this table
   -- Check the current ft with `:echo &ft`
   disable_filetype = { "TelescopePrompt" },
+  enable_bracket_in_quote = false,
   fast_wrap = {
     map = "<M-e>",
     chars = { "{", "[", "(", '"', "'" },
