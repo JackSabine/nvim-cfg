@@ -38,7 +38,7 @@ vim.cmd([[
   augroup end
 
   augroup _non_default_indents
-    autocmd FileType cpp,c,python,json,javascript,jsx,matlab setlocal tabstop=4 shiftwidth=4 softtabstop=4
+    autocmd FileType make,cpp,c,python,json,javascript,jsx,matlab setlocal tabstop=4 shiftwidth=4 softtabstop=4
   augroup end
 ]])
 
