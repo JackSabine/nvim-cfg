@@ -30,21 +30,29 @@ null_ls.setup({
     formatting.clang_format.with({
       extra_args = {
         "--style",
-        "{"
-          .. "BasedOnStyle: llvm,"
-          .. "AccessModifierOffset: -4,"
-          .. "AlignAfterOpenBracket: BlockIndent,"
-          .. "AllowAllArgumentsOnNextLine: false,"
-          .. "AllowShortBlocksOnASingleLine: false,"
-          .. "AllowShortFunctionsOnASingleLine: false,"
-          .. "AllowShortIfStatementsOnASingleLine: false,"
-          .. "AllowShortLoopsOnASingleLine: false,"
-          .. "AllowAllParametersOfDeclarationOnNextLine: false,"
-          .. "BinPackArguments: false,"
-          .. "BinPackParameters: false,"
-          .. "BreakConstructorInitializers: BeforeComma,"
-          .. "IndentWidth: 4,"
-          .. "}",
+        "file:.clang-format",
+        -- One day, hopefully, this will be a valid argument for clang-format
+        -- In the meantime, create a "default" .clang-format in your home or root dir
+        -- clang-format will search parent dirs for this file
+        --
+        -- Create the file with this (must have clang-format-15 installed through apt/LLVM releases):
+        -- `clang-format-15 --style="{ BasedOnStyle: llvm, AccessModifierOffset: -4, AlignAfterOpenBracket: BlockIndent, AllowAllArgumentsOnNextLine: false, AllowShortBlocksOnASingleLine: false, AllowShortFunctionsOnASingleLine: false, AllowShortIfStatementsOnASingleLine: false, AllowShortLoopsOnASingleLine: false, AllowAllParametersOfDeclarationOnNextLine: false, BinPackArguments: false, BinPackParameters: false, BreakConstructorInitializers: BeforeComma, IndentWidth: 4}" --dump-config > ~/.clang-format`
+        -- "--fallback-style",
+        -- "{"
+        --   .. "BasedOnStyle: llvm,"
+        --   .. "AccessModifierOffset: -4,"
+        --   .. "AlignAfterOpenBracket: BlockIndent,"
+        --   .. "AllowAllArgumentsOnNextLine: false,"
+        --   .. "AllowShortBlocksOnASingleLine: false,"
+        --   .. "AllowShortFunctionsOnASingleLine: false,"
+        --   .. "AllowShortIfStatementsOnASingleLine: false,"
+        --   .. "AllowShortLoopsOnASingleLine: false,"
+        --   .. "AllowAllParametersOfDeclarationOnNextLine: false,"
+        --   .. "BinPackArguments: false,"
+        --   .. "BinPackParameters: false,"
+        --   .. "BreakConstructorInitializers: BeforeComma,"
+        --   .. "IndentWidth: 4,"
+        --   .. "}",
       },
     }),
     formatting.beautysh.with({
