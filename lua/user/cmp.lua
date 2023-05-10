@@ -128,7 +128,9 @@ cmp.setup({
     },
   },
   experimental = {
-    ghost_text = true, -- Suggest text as you're typing
+    -- This value used to be boolean, but now any table will enable it
+    -- https://github.com/hrsh7th/nvim-cmp/issues/1565#issuecomment-1542232040
+    ghost_text = { foobar = "anything" }, -- Suggest text as you're typing
     native_menu = false,
   },
 })
