@@ -230,8 +230,8 @@ local mappings = {
   ["D"] = { '"_D', "Black Hole Delete" },
   ["<C-x>"] = { "<cmd>Bdelete<CR>", "Close Buffer" },
   ["<M-x>"] = { "<cmd>Bdelete!<CR>", "Force Close Buffer" },
-  ["<C-l>"] = { "<cmd>bnext<CR>", "Next Buffer" },
-  ["<C-h>"] = { "<cmd>bprevious<CR>", "Prev Buffer" },
+  ["<M-l>"] = { "<cmd>bnext<CR>", "Next Buffer" },
+  ["<M-h>"] = { "<cmd>bprevious<CR>", "Prev Buffer" },
   ["<C-n>"] = {
     "<cmd>lua vim.opt.relativenumber = not(vim.opt.relativenumber:get())<CR>",
     "Toggle Relative Number",
