@@ -228,10 +228,38 @@ local mappings = {
   ["P"] = { '"0P', "Paste Last Yank" },
   ["d"] = { '"_d', "Black Hole Delete" },
   ["D"] = { '"_D', "Black Hole Delete" },
-  ["<C-x>"] = { "<cmd>Bdelete<CR>", "Close Buffer" },
-  ["<M-x>"] = { "<cmd>Bdelete!<CR>", "Force Close Buffer" },
-  ["<M-l>"] = { "<cmd>bnext<CR>", "Next Buffer" },
-  ["<M-h>"] = { "<cmd>bprevious<CR>", "Prev Buffer" },
+  ["<C-x>"] = { "<cmd>BufferClose<CR>", "Close Buffer" },
+  -- Close commands
+  --   :BufferCloseAllButCurrent
+  --   :BufferCloseAllButVisible
+  --   :BufferCloseAllButPinned
+  --   :BufferCloseAllButCurrentOrPinned
+  --   :BufferCloseBuffersLeft
+  --   :BufferCloseBuffersRight
+  ["<M-h>"] = { "<cmd>BufferNext<CR>", "Foobar" },
+  ["<M-l>"] = { "<cmd>BufferPrevious<CR>", "Foobar" },
+  ["<C-h>"] = { "<cmd>BufferMoveNext<CR>", "Foobar" },
+  ["<C-l>"] = { "<cmd>BufferMovePrevious<CR>", "Foobar" },
+  ["<M-2>"] = { "<cmd>BufferGoto 1<CR>", "Foobar" },
+  ["<M-3>"] = { "<cmd>BufferGoto 2<CR>", "Foobar" },
+  ["<M-4>"] = { "<cmd>BufferGoto 3<CR>", "Foobar" },
+  ["<M-1>"] = { "<cmd>BufferGoto 4<CR>", "Foobar" },
+  ["<M-5>"] = { "<cmd>BufferGoto 5<CR>", "Foobar" },
+  ["<M-6>"] = { "<cmd>BufferGoto 6<CR>", "Foobar" },
+  ["<M-7>"] = { "<cmd>BufferGoto 7<CR>", "Foobar" },
+  ["<M-8>"] = { "<cmd>BufferGoto 8<CR>", "Foobar" },
+  ["<M-9>"] = { "<cmd>BufferGoto 9<CR>", "Foobar" },
+  ["<M-0>"] = { "<cmd>BufferGotoLast<CR>", "Foobar" },
+  ["<M-p>"] = { "<cmd>BufferPin<CR>", "Pin Buffer" },
+  -- Magic buffer-picking mode
+  ["<C-p>"] = { "<cmd>BufferPick<CR>", "Pick Buffer" },
+  ["<C-s-p>"] = { "<cmd>BufferPickDelete<CR>", "Pick Buffer" },
+  -- Sort commands
+  --   :BufferOrderByBufferNumber
+  --   :BufferOrderByName
+  --   :BufferOrderByDirectory
+  --   :BufferOrderByLanguage
+  --   :BufferOrderByWindowNumber
   ["<C-n>"] = {
     "<cmd>lua vim.opt.relativenumber = not(vim.opt.relativenumber:get())<CR>",
     "Toggle Relative Number",

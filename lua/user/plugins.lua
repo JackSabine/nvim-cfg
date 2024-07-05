@@ -105,8 +105,13 @@ return packer.startup(function(use)
   })
 
   -- Bufferline
-  use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
-  use({ "moll/vim-bbye" })
+  use({
+    "romgrk/barbar.nvim",
+    requires = {
+      "nvim-tree/nvim-web-devicons",
+      "lewis6991/gitsigns.nvim",
+    },
+  })
 
   -- Lualine
   use({ "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons", opt = true } })
